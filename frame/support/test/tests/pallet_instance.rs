@@ -497,7 +497,7 @@ fn pallet_hooks_expand() {
 			Some(pallet::Pallet::<Runtime, pallet::Instance1>::current_version()),
 		);
 
-		// The order is indeed reversed due to https://github.com/paritytech/substrate/issues/6280
+		// The order is indeed reversed due to https://github.com/Axia-Tech/substrate-v2/issues/6280
 		assert_eq!(
 			frame_system::Module::<Runtime>::events()[0].event,
 			Event::pallet_Instance1(pallet::Event::Something(11)),

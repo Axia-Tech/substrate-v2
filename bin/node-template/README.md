@@ -167,7 +167,7 @@ the following:
 ### Pallets
 
 The runtime in this project is constructed using many FRAME pallets that ship with the
-[core Substrate repository](https://github.com/paritytech/substrate/tree/master/frame) and a
+[core Substrate repository](https://github.com/Axia-Tech/substrate-v2/tree/master/frame) and a
 template pallet that is [defined in the `pallets`](./pallets/template/src/lib.rs) directory.
 
 A FRAME pallet is compromised of a number of blockchain primitives:
@@ -190,7 +190,7 @@ Generate a Substrate node template based on a particular commit by running the f
 
 ```bash
 # Clone from the main Substrate repo
-git clone https://github.com/paritytech/substrate.git
+git clone https://github.com/Axia-Tech/substrate-v2.git
 cd substrate
 
 # Switch to the branch or commit to base the template on

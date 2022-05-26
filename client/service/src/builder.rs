@@ -947,7 +947,7 @@ pub fn build_network<TBl, TExPool, TImpQu, TCl>(
 	// This entire hack should eventually be removed in favour of passing the list of protocols
 	// through the configuration.
 	//
-	// See also https://github.com/paritytech/substrate/issues/6827
+	// See also https://github.com/Axia-Tech/substrate-v2/issues/6827
 	let (network_start_tx, network_start_rx) = oneshot::channel();
 
 	// The network worker is responsible for gathering all network messages and processing

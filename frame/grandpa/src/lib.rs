@@ -109,7 +109,7 @@ pub trait WeightInfo {
 
 /// A stored pending change, old format.
 // TODO: remove shim
-// https://github.com/paritytech/substrate/issues/1614
+// https://github.com/Axia-Tech/substrate-v2/issues/1614
 #[derive(Encode, Decode)]
 pub struct OldStoredPendingChange<N> {
 	/// The block number this was scheduled at.

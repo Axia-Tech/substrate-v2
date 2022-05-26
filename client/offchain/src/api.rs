@@ -64,7 +64,7 @@ pub(crate) struct Api<Storage> {
 fn unavailable_yet<R: Default>(name: &str) -> R {
 	error!(
 		"The {:?} API is not available for offchain workers yet. Follow \
-		https://github.com/paritytech/substrate/issues/1458 for details", name
+		https://github.com/Axia-Tech/substrate-v2/issues/1458 for details", name
 	);
 	Default::default()
 }

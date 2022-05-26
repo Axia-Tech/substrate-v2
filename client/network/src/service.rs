@@ -237,7 +237,7 @@ impl<B: BlockT + 'static, H: ExHashT> NetworkWorker<B, H> {
 				CLI options will eventually be removed in a future version. The Substrate \
 				and Polkadot networking protocol require validators to be \
 				publicly-accessible. Please do not block access to your validator nodes. \
-				For details, see https://github.com/paritytech/substrate/issues/6845."
+				For details, see https://github.com/Axia-Tech/substrate-v2/issues/6845."
 			);
 		}
 
@@ -1555,11 +1555,11 @@ impl<B: BlockT + 'static, H: ExHashT> Future for NetworkWorker<B, H> {
 					// reopened.
 					// The code below doesn't compile because `role` is unknown. Propagating the
 					// handshake of the secondary connections is quite an invasive change and
-					// would conflict with https://github.com/paritytech/substrate/issues/6403.
+					// would conflict with https://github.com/Axia-Tech/substrate-v2/issues/6403.
 					// Considering that dropping notifications is generally regarded as
 					// acceptable, this bug is at the moment intentionally left there and is
 					// intended to be fixed at the same time as
-					// https://github.com/paritytech/substrate/issues/6403.
+					// https://github.com/Axia-Tech/substrate-v2/issues/6403.
 					/*this.event_streams.send(Event::NotificationStreamClosed {
 						remote,
 						protocol,

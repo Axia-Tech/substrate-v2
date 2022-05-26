@@ -311,7 +311,7 @@ where
 		// eviction by returning `None`. We cannot evict eagerly here because those
 		// changes would be rolled back in case this contract is called by another
 		// contract.
-		// See: https://github.com/paritytech/substrate/issues/6439#issuecomment-648754324
+		// See: https://github.com/Axia-Tech/substrate-v2/issues/6439#issuecomment-648754324
 		let contract = Rent::<T, E>::charge(&dest, contract, executable.occupied_storage())?
 			.ok_or(Error::<T>::NotCallable)?;
 

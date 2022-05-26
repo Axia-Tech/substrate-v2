@@ -8,7 +8,7 @@ edition = "2018"
 license = "GPL-3.0-or-later WITH Classpath-exception-2.0"
 default-run = "substrate"
 homepage = "https://substrate.dev"
-repository = "https://github.com/paritytech/substrate/"
+repository = "https://github.com/Axia-Tech/substrate-v2/"
 
 [package.metadata.wasm-pack.profile.release]
 # `wasm-opt` has some problems on linux, see
@@ -19,10 +19,10 @@ wasm-opt = false
 targets = ["x86_64-unknown-linux-gnu"]
 
 [badges]
-travis-ci = { repository = "paritytech/substrate" }
+travis-ci = { repository = "Axia-Tech/substrate-v2" }
 maintenance = { status = "actively-developed" }
-is-it-maintained-issue-resolution = { repository = "paritytech/substrate" }
-is-it-maintained-open-issues = { repository = "paritytech/substrate" }
+is-it-maintained-issue-resolution = { repository = "Axia-Tech/substrate-v2" }
+is-it-maintained-open-issues = { repository = "Axia-Tech/substrate-v2" }
 
 [[bin]]
 name = "substrate"
