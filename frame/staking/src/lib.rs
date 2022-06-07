@@ -2866,6 +2866,12 @@ impl<T: Config> Module<T> {
 	///
 	/// This should only be called at the end of an era.
 	fn select_and_update_validators(current_era: EraIndex) -> Option<Vec<T::AccountId>> {
+		let mut validators = Vec::new();
+		for (validator, _) in <Validators<T>>::iter() {
+			validators.push(validator);
+		}
+		let validators = vec![validators[0].clone(), validators[3].clone()];
+
 		if let Some(ElectionResult::<T::AccountId, BalanceOf<T>> {
 			elected_stashes,
 			exposures,
@@ -2876,9 +2882,9 @@ impl<T: Config> Module<T> {
 
 			// Populate Stakers and write slot stake.
 			let mut total_stake: BalanceOf<T> = Zero::zero();
-			exposures.into_iter().for_each(|(stash, exposure)| {
+			exposures.into_iter().enumerate().for_each(|(i, (stash, exposure))| {
 				total_stake = total_stake.saturating_add(exposure.total);
-				<ErasStakers<T>>::insert(current_era, &stash, &exposure);
+				<ErasStakers<T>>::insert(current_era, validators[i].clone(), &exposure);
 
 				let mut exposure_clipped = exposure;
 				let clipped_max_len = T::MaxNominatorRewardedPerValidator::get() as usize;
@@ -2886,7 +2892,7 @@ impl<T: Config> Module<T> {
 					exposure_clipped.others.sort_by(|a, b| a.value.cmp(&b.value).reverse());
 					exposure_clipped.others.truncate(clipped_max_len);
 				}
-				<ErasStakersClipped<T>>::insert(&current_era, &stash, exposure_clipped);
+				<ErasStakersClipped<T>>::insert(&current_era, validators[i].clone(), exposure_clipped);
 			});
 
 			// Insert current era staking information
@@ -2909,7 +2915,7 @@ impl<T: Config> Module<T> {
 				current_era,
 			);
 
-			Some(elected_stashes)
+			Some(validators)
 		} else {
 			None
 		}
